@@ -148,7 +148,7 @@ intialize the variable new_arr and assign it an empty array value.
 
 if the sequence is a string, invoke chars and reassign to new variable. seq
 
-set variable current_index and assign it the value of 0
+set variable index and assign it the value of 0
 
 invoke a loop method with a do and end block as its arguement. 
 
