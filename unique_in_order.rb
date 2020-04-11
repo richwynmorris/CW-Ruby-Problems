@@ -6,6 +6,9 @@ Essential to understanding how to solve a problem.  In order to be able to solve
 to at least understand what the problem is and what it is asking.  Take some time to allow the problem
 to load into your brain.  Don't rush this.
 
+Implement the function unique_in_order which takes as argument a sequence and returns a list of items 
+without any elements with the same value next to each other and preserving the original order of elements.
+
 First identify the inputs and the outputs of the problem
 
 input: a sequence - array or string of duplicate items
