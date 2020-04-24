@@ -45,26 +45,29 @@ def pick_peaks(arr)
 	    hash["peaks"] << num
 	    plateau = false
 	  elsif arr[index] == arr[(index - 1)] && arr[index] == arr[(index + 1)]
-      look_ahead = index + 1
-      loop do
-        break if arr[look_ahead] != arr[index]
-        look_ahead += 1
-      end
-      plateau_section = arr.slice(index - 1..look_ahead - 1)
-      if plateau_section == arr.slice(0..look_ahead -1) || plateau_section == arr.slice(index -1..-1)
-      	p plateau_section
-      	p arr.slice(0..index-1)
-        return hash
-      elsif plateau == true
-        next
-      else
-        hash["pos"] << index -1 
-	    hash["peaks"] << arr[index - 1]
-	    plateau = true
-      end
+        look_ahead = index + 1
+        loop do
+          break if arr[look_ahead] != arr[index]
+          look_ahead += 1
+        end
+
+        plateau_section = arr.slice(index - 1..look_ahead - 1)
+      
+        if plateau_section == arr.slice(0..look_ahead -1) || plateau_section == arr.slice(index -1..-1)
+          return hash
+        elsif plateau == true
+          next
+        else
+          hash["pos"] << index -1 
+	      hash["peaks"] << arr[index - 1]
+	      plateau = true
+        end
     end
+
   end
-  hash
+
+ hash
+
 end
 
 # p pick_peaks([3, 2, 3, 6, 4, 1, 2, 3, 2, 1, 2, 3])
