@@ -39,8 +39,8 @@ Edge Cases: What do you do if the number is already a single digit?
 
 Mental Model:
 Take the number and split the digits into an array. invoke a loop method
-break if the result < 10. Reassign the sum of the array to variable arr
-. return the sum  of the array when < 10.
+break if the result < 10. Reassign the sum of the array to variable. 
+return the sum of the array when loop breaks.
 
 Algorithm:
     define a method called digital_root with one parameter, n.
