@@ -153,35 +153,14 @@ into the desired output.
     - You want something that you can readily convert to code without actually writing code.
     - Before implementing the algorithm, you should test it manually with test cases.  
 
-
-Define the method solution to take one parameter, str. 
-
-Push '_' string object to str if str.length is odd?
-
-Initialize local variable result and assign it with an empty array.
-
-Invoke a loop method and pass a `do..end` block to it as an argument.
-
-Express the reserved word break if the str after calling the .slice method returns true.
-
-The << method is invoked and it takes the return value of the str parameter with the .slice!
-method invoked upon it as its argument. 
-
-Return the local variable result's value.
-
 =end
 
 
 # Code:
 
 def solution(str)
-	str << '_' if str.length.odd?
-	result = []
-	loop do 
-		break if str.empty?
-		result << str.slice!(0..1)
-	end
-	result
+  str << '_' if str.length.odd?
+  str.chars.each_slice(2).map(&:join)
 end
 
 solution('abc') # should return ['ab', 'c_']
