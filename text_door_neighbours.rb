@@ -50,41 +50,38 @@ door neighbour.
 =end
 def neighbors_of(phone_number)
 
-combinations = {'1' => ['2','4'], '2' => ['1','3','5'], '3' => ['2', '6'],
-				'4' => ['1','5','7'], '5' => ['2','4','6','8'], '6' => ['3','5','9'],
-				'7' => ['4','8'], '8' => ['7','5','9'], '9' => ['6','8'], '0' => ['8']}
+  combinations = {'1' => ['2','4'], '2' => ['1','3','5'], '3' => ['2', '6'],
+  				'4' => ['1','5','7'], '5' => ['2','4','6','8'], '6' => ['3','5','9'],
+  				'7' => ['4','8'], '8' => ['5','7','9','0'], '9' => ['6','8'], '0' => ['8']}
 
-copy = phone_number.clone
+  results = []
+  numbers = phone_number.chars
+  current_index = 0
 
-
-
-loop do
-
-	results = []
-	
-	current_number = 0
-	hash_value_index = 0
-
-	break if current_number == phone_number.length - 1 
-
-	loop do
-		break if combinations[hash_value_index] == nil
-		phone_number[current_number] = combinations[copy[current_number]][hash_value_index]
-		results << 'hello'
-		hash_value_index += 1
-
-		binding.pry
-	end
-	
-
-	current_number += 1
-
+  loop do
+    break if current_index == numbers.length
+    value_index = 0
+    loop do
+      break if combinations[numbers[current_index]][value_index] == nil
+      answer = numbers.map.with_index do |num, index|
+        if index == current_index
+          combinations[num][value_index]
+        else
+          num
+        end
+      end
+      results << answer.join
+      value_index += 1
+    end
+  current_index += 1
+  end
+results
 end
 
-
-end
 
 neighbors_of("8675309")
+
+
 
 
 
