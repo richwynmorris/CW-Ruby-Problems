@@ -24,24 +24,28 @@ def time_of_day(time)
 
 	if hour > 24
 		loop do
-			break if hours < 24 
-			hours -= 24
+			break if hour < 24 
+			hour -= 24
 		end
 	elsif hour < 0
 		loop do
-			break if hours > 0
-			hours += 24
+			break if hour >= 0
+			hour += 24
 		end
-	end 
-
-	if hour < 10
-		hour_result = sprintf("%0d", hour)
-	elsif minutes < 10
-		minutes_result = sprintf("%0d", minutes)
 	end
 
-	"#{hour_result}:#{minutes_result}"
+  hour = '0' + hour.to_s if hour < 10
+		
+	minutes = '0' + minutes.to_s if minutes < 10
+
+	"#{hour}:#{minutes}"
 
 end
 
-p time_of_day(0) #== "00:00"
+p time_of_day(0) == "00:00"
+p time_of_day(-3) == "23:57"
+p time_of_day(35) == "00:35"
+p time_of_day(-1437) == "00:03"
+p time_of_day(3000) == "02:00"
+p time_of_day(800) == "13:20"
+p time_of_day(-4231) == "01:29"
