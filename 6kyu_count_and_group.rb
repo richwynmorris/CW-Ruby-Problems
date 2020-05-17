@@ -27,7 +27,7 @@
 # push the numbers of its times it appears with count push the value to the array.
 # return hash
 
-# Data Structure: Hash.new/downcase/delete_if/match?/chars/each/hash/push/hash
+# Data Structure: Hash.new/downcase/select!/match?/chars/each/hash/push/hash
 
 def get_char_count (string)
   
@@ -52,6 +52,15 @@ def get_char_count (string)
   
   results.sort_by {|k,v| -k }.to_h
   
+end
+
+# Using the group_by method
+def get_char_count (string)
+  array_of_chars = string.downcase.chars
+  array_of_chars.select! do |letter|
+    letter.match?(/[a-z0-9]/)
+  end
+  array_of_chars.uniq.sort.group_by {|char| array_of_chars.count(char)}
 end
 
 p get_char_count("Mississippi") == {4=>["i", "s"], 2=>["p"], 1=>["m"]} 
